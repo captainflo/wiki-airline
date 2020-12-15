@@ -3,6 +3,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import { connect, useSelector } from 'react-redux';
 import * as actions from './actions';
 
+// Pages
 import Signout from './auth/Signout';
 import Signin from './auth/Signin';
 import Signup from './auth/Signup';
@@ -10,6 +11,9 @@ import Welcome from './pages/Welcome';
 import ShowUser from './user/ShowUser';
 import EditUser from './user/EditUser';
 import Header from './utils/Header';
+
+// Matirial UI
+import Container from '@material-ui/core/Container';
 
 const App = (props) => {
   const user = useSelector((state) => state.auth.user);
@@ -25,7 +29,7 @@ const App = (props) => {
     <div>
       <BrowserRouter>
         <Header currentUser={user} />
-        <div className="wrapper">
+        <Container>
           <Route exact path="/" component={Welcome} />
           <Route path="/signout" component={Signout} />
           <Route path="/signin" component={Signin} />
@@ -38,7 +42,7 @@ const App = (props) => {
           ) : (
             ''
           )}
-        </div>
+        </Container>
       </BrowserRouter>
     </div>
   );

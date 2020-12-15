@@ -18,9 +18,7 @@ const Signin = (props) => {
 
   return (
     <div className="container">
-      <h2>
-        Sigin <i className="fas fa-sign-in-alt"></i>
-      </h2>
+      <h2>Sigin</h2>
       <form onSubmit={handleSubmit(onSubmit)}>
         <Field
           name="email"
@@ -35,14 +33,8 @@ const Signin = (props) => {
           label="Password"
         />
         <div>
-          <div className="form-group">
-            {error ? <span className="text-danger">{error}</span> : ''}
-          </div>
-          <button
-            className="btn btn-primary shadow rounded btn-website"
-            type="submit"
-            disabled={submitting}
-          >
+          <div>{error ? <span>{error}</span> : ''}</div>
+          <button type="submit" disabled={submitting}>
             Submit
           </button>
         </div>

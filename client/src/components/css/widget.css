@@ -15,22 +15,9 @@
 .upload-button {
   width: 50px;
   height: 50px;
-  background: #ee9ca7; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to right,
-    #ffdde1,
-    #ee9ca7
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to right,
-    #ffdde1,
-    #ee9ca7
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  font-size: 35px;
+  background: black; /* fallback for old browsers */
   color: #fff;
   border-radius: 50%;
-  padding-left: 13px;
-  padding-top: 6px;
   cursor: pointer;
   -webkit-transform: scale(1.05);
   -ms-transform: scale(1.05);
@@ -41,6 +28,12 @@
   -webkit-transition: 0.1s;
   -o-transition: 0.1s;
   transition: 0.1s;
+}
+
+.upload-button .material-icons {
+  margin-top: 5px;
+  margin-left: 8px;
+  font-size: 35px;
 }
 
 .delete-picture {
