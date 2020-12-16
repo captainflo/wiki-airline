@@ -1,0 +1,26 @@
+.wrapper-card {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.user-avatar {
+  width: 100px;
+  height: 100px;
+  margin-top: -60px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.user-avatar img {
+  border-radius: 50%;
+  border: 3px solid black;
+}
+
+@media only screen and (min-width: 1024px) {
+  .wrapper-card {
+    width: 60%;
+  }
+}

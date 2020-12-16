@@ -1,12 +1,11 @@
-import '../../css/widget.css';
+import '../../../css/widget.css';
 
 const Widget = (props) => {
   return (
     <div className="form-group">
       <label>Upload Photo</label>
       <p className="upload-button" onClick={() => props.showWidget()}>
-        {/* <i className="fas fa-camera"></i> */}
-        <i class="material-icons md-36">add_photo_alternate</i>
+        <i className="fas fa-camera"></i>
       </p>
       {props.image ? (
         <div>

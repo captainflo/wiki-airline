@@ -11,9 +11,7 @@ import Welcome from './pages/Welcome';
 import ShowUser from './user/ShowUser';
 import EditUser from './user/EditUser';
 import Header from './utils/Header';
-
-// Matirial UI
-import Container from '@material-ui/core/Container';
+import Footer from './utils/Footer';
 
 const App = (props) => {
   const user = useSelector((state) => state.auth.user);
@@ -29,20 +27,19 @@ const App = (props) => {
     <div>
       <BrowserRouter>
         <Header currentUser={user} />
-        <Container>
-          <Route exact path="/" component={Welcome} />
-          <Route path="/signout" component={Signout} />
-          <Route path="/signin" component={Signin} />
-          <Route path="/signup" component={Signup} />
-          {authenticated ? (
-            <div>
-              <Route exact path="/user/:id" component={ShowUser} />
-              <Route exact path="/user/edit/:id" component={EditUser} />
-            </div>
-          ) : (
-            ''
-          )}
-        </Container>
+        <Route exact path="/" component={Welcome} />
+        <Route path="/signout" component={Signout} />
+        <Route path="/signin" component={Signin} />
+        <Route path="/signup" component={Signup} />
+        {authenticated ? (
+          <div>
+            <Route exact path="/user/:id" component={ShowUser} />
+            <Route exact path="/user/edit/:id" component={EditUser} />
+          </div>
+        ) : (
+          ''
+        )}
+        <Footer />
       </BrowserRouter>
     </div>
   );

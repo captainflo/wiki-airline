@@ -8,8 +8,12 @@ const Signout = (props) => {
   }, [props.signout, props]);
 
   return (
-    <div>
-      <h2>Sorry to see you go...</h2>
+    <div className="jumbotron d-flex align-items-center">
+      <div className="container">
+        <h2>
+          Sorry to see you go... <i className="fas fa-sad-tear"></i>
+        </h2>
+      </div>
     </div>
   );
 };

@@ -1,0 +1,20 @@
+/* image signin signup */
+.wrapper-auth-image {
+  max-height: 100vh;
+}
+.wrapper-auth-image img {
+  width: 100%;
+}
+
+@media only screen and (min-width: 1024px) {
+  .wrapper-auth-image img {
+    min-height: 100vh;
+  }
+}
+
+@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation: portrait) {
+  .wrapper-auth-image img {
+    height: auto;
+    overflow: hidden;
+  }
+}
