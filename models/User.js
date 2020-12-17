@@ -9,7 +9,7 @@ const userSchema = new Schema({
   avatar: {
     type: String,
     default:
-      'https://helenkellerfestival.com/site/wp-content/uploads/2018/06/ticket.jpg',
+      'https://res.cloudinary.com/dwtc6zep7/image/upload/v1608220248/wiki-airline/t9i6fkpmgf6mb1ohbn12.jpg',
   },
   firstName: String,
   lastName: String,

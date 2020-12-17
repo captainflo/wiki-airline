@@ -1,0 +1,45 @@
+.carousel-wrapper {
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+  color: #fff;
+}
+
+.carousel-wrapper h1 {
+  font-weight: lighter;
+  font-size: 20px;
+  background-color: rgba(0, 0, 0, 0.8);
+  width: 100%;
+  padding: 10px;
+}
+
+.carousel-wrapper h4 {
+  font-weight: lighter;
+  font-size: 15px;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 7px;
+  display: inline;
+}
+
+.carousel-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@media only screen and (min-width: 1024px) {
+  .carousel-wrapper {
+    height: 400px;
+    opacity: 0.9;
+  }
+  .carousel-wrapper h1 {
+    font-size: 60px;
+  }
+  .carousel-wrapper h4 {
+    font-size: 25px;
+  }
+}
+
+@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation: portrait) {
+}

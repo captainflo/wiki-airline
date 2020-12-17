@@ -30,7 +30,7 @@ const EditUser = (props) => {
   let widget = window.cloudinary.createUploadWidget(
     {
       cloudName: 'dwtc6zep7',
-      uploadPreset: 'ghh86ckz',
+      uploadPreset: 'dedd0jci',
     },
     (error, result) => {
       if (result.event === 'success') {

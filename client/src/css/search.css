@@ -1,0 +1,15 @@
+.search form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px;
+  color: #fff;
+}
+
+.input-search {
+  margin-right: 10px;
+}
+
+.search button {
+  margin-top: 24px;
+}
