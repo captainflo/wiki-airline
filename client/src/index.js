@@ -7,6 +7,7 @@ import reduxThunk from 'redux-thunk';
 import reducers from './components/reducers';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.bundle';
+import './css/index.css';
 
 const store = createStore(
   reducers,

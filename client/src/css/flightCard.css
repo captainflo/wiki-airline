@@ -1,0 +1,38 @@
+.flightCard {
+  width: 90%;
+  height: auto;
+  -webkit-transform: scale(1.05);
+  -ms-transform: scale(1.05);
+  transform: scale(1.05);
+  -webkit-box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+    0 10px 10px rgba(0, 0, 0, 0.22);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  -webkit-transition: 0.1s;
+  -o-transition: 0.1s;
+  transition: 0.1s;
+  border-radius: 8px;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+}
+
+.flightCard-wrapper {
+  width: 100%;
+}
+
+.flightCard-wrapper img {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.body-flightCard h6 {
+  font-size: 19px;
+  margin-bottom: 20px;
+}
+
+@media only screen and (min-width: 1024px) {
+  .flightCard-wrapper {
+    height: 150px;
+  }
+}

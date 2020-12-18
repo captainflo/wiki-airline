@@ -1,5 +1,13 @@
 import axios from 'axios';
-import { AUTH_USER, AUTH_ERROR, EDIT_USER, FETCH_USER } from './types';
+import {
+  AUTH_USER,
+  AUTH_ERROR,
+  EDIT_USER,
+  FETCH_USER,
+  // FLIGHT,
+  FLIGHT_ERROR,
+  FLIGHTS,
+} from './types';
 
 //////////////////////////////// Authentification //////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////
@@ -73,4 +81,27 @@ export const deleteUser = (id, callback) => async (dispatch) => {
 // Cloudinary Delete Image
 export const deleteImage = (image) => async () => {
   await axios.post(`/api/delete/image`, image);
+};
+
+////////////////////////////////////////// Flight ////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////
+
+// Create Flight
+export const createFlight = (flight, callback) => async (dispatch) => {
+  try {
+    await axios.post('/api/flight/new', flight);
+    callback();
+  } catch (e) {
+    dispatch({ type: FLIGHT_ERROR, payload: 'can not create flight' });
+  }
+};
+
+// Fetch All Flights
+export const getAllFlights = () => async (dispatch) => {
+  try {
+    const response = await axios.get('/api/flights');
+    dispatch({ type: FLIGHTS, payload: response.data });
+  } catch (e) {
+    dispatch({ type: FLIGHT_ERROR, payload: 'No flights found...' });
+  }
 };
