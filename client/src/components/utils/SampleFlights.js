@@ -3,8 +3,8 @@ import { connect, useSelector } from 'react-redux';
 import * as actions from '../actions';
 import Loading from '../utils/Loading';
 import FlightCard from './FlightCard';
-import moment from 'moment';
-const _ = require('lodash');
+// import moment from 'moment';
+// const _ = require('lodash');
 
 const SampleFlights = (props) => {
   const flights = useSelector((state) => state.plane.flights);
@@ -16,7 +16,6 @@ const SampleFlights = (props) => {
   if (!flights) {
     return <Loading />;
   }
-  console.log(flights);
 
   const displayFlights = flights
     //  _.orderBy(
@@ -24,7 +23,7 @@ const SampleFlights = (props) => {
     //   (flight) => moment(flight.depart).format(''),
     //   'desc'
     // )
-    //   .slice(Math.max(flights.length - 4, 0))
+    .slice(Math.max(flights.length - 4, 0))
     .map((flight) => {
       return (
         <div key={flight._id} className="col-md-3">

@@ -17,9 +17,8 @@ const FlightCard = ({ flight }) => {
           <i className="far fa-clock"></i> {moment(flight.depTime).format('LT')}
         </p>
         <p>{flight.type}</p>
-        <div className="float-right">
-          <p>$ {flight.price}</p>
-        </div>
+
+        <p className="price">$ {flight.price}</p>
       </div>
       <div className="text-center card-footer">
         <button className="btn btn-primary">View Detail</button>

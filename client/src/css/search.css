@@ -6,10 +6,34 @@
   color: #fff;
 }
 
+.search h1 {
+  padding-top: 20px;
+}
+
+.road-type {
+  color: #fff;
+  text-align: center;
+}
+.road-type label {
+  margin-right: 10px;
+}
+
 .input-search {
   margin-right: 10px;
 }
 
 .search button {
   margin-top: 24px;
+}
+
+@media only screen and (min-width: 1024px) {
+  .search h1 {
+    font-size: 40px;
+    font-weight: 600;
+    padding-top: 60px;
+  }
+  .road-type {
+    margin-left: 15%;
+    text-align: unset;
+  }
 }

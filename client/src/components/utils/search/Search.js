@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { reduxForm, Field } from 'redux-form';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
@@ -11,54 +11,30 @@ import '../../../css/search.css';
 
 const Search = (props) => {
   const { handleSubmit, submitting } = props;
-
-  // CheckBox
-  const [roundTrip, setRoundTrip] = useState(true);
-  const [oneWay, setOneWay] = useState('');
-
-  const handleChangeOneWay = () => {
-    setRoundTrip(false);
-    setOneWay(true);
-  };
-
-  const handleChangeRoundTrip = () => {
-    setRoundTrip(true);
-    setOneWay(false);
-  };
-
-  // Submit
-  const onSubmit = (value) => {
-    delete value.oneWay;
-    delete value.roundTrip;
-    if (oneWay) {
-      delete value.returnDate;
-    }
-    console.log(value);
-  };
-
   return (
     <div className="search">
-      <div className="text-center">
+      <h1 className="display-4">Book your flight</h1>
+      <div className="road-type">
         <Field
           name="roundTrip"
-          type="radio"
-          component={renderCheckbox}
-          onChange={handleChangeRoundTrip}
-          value={roundTrip}
-          checked={roundTrip}
-          label="Round trip"
+          id="roundTrip"
+          component="input"
+          type="checkbox"
+          checked={props.roundTrip}
+          onChange={props.handleChangeRoundTrip}
         />
+        <label>Round Trip</label>
         <Field
           name="oneWay"
-          type="radio"
-          onChange={handleChangeOneWay}
-          component={renderCheckbox}
-          value={oneWay}
-          checked={oneWay}
-          label="One way"
+          id="oneWay"
+          component="input"
+          type="checkbox"
+          checked={props.oneWay}
+          onChange={props.handleChangeOneWay}
         />
+        <label>One way</label>
       </div>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(props.onSubmit)}>
         <Field
           name="from"
           type="text"
@@ -79,7 +55,7 @@ const Search = (props) => {
           component={renderField}
           label="Depart"
         />
-        {!oneWay ? (
+        {!props.oneWay ? (
           <Field
             type="date"
             name="returnDate"
@@ -91,15 +67,12 @@ const Search = (props) => {
         )}
 
         <div>
-          {/* <div className="form-group">
-                  {error ? <span className="text-danger">{error}</span> : ''}
-                </div> */}
           <button
             className="btn btn-primary "
             type="submit"
             disabled={submitting}
           >
-            Submit
+            Search
           </button>
         </div>
       </form>

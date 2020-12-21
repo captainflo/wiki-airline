@@ -3,6 +3,7 @@
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url('https://images.pexels.com/photos/723240/pexels-photo-723240.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
   height: 350px;
+  height: 420px;
   width: 100%;
   background-position: center;
   background-repeat: no-repeat;
@@ -13,4 +14,10 @@
 .banner h1 {
   text-align: center;
   color: #fff;
+}
+
+@media only screen and (min-width: 1024px) {
+  .banner {
+    height: 350px;
+  }
 }

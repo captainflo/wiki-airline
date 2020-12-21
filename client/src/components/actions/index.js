@@ -5,6 +5,7 @@ import {
   EDIT_USER,
   FETCH_USER,
   // FLIGHT,
+  LIST_FLIGHTS,
   FLIGHT_ERROR,
   FLIGHTS,
 } from './types';
@@ -103,5 +104,18 @@ export const getAllFlights = () => async (dispatch) => {
     dispatch({ type: FLIGHTS, payload: response.data });
   } catch (e) {
     dispatch({ type: FLIGHT_ERROR, payload: 'No flights found...' });
+  }
+};
+
+// List Flights
+export const getListFlights = (form) => async (dispatch) => {
+  try {
+    const response = await axios.post('/api/list/flights', form);
+    dispatch({ type: LIST_FLIGHTS, payload: response.data });
+  } catch (e) {
+    dispatch({
+      type: FLIGHT_ERROR,
+      payload: 'No flights found at this date...',
+    });
   }
 };

@@ -1,7 +1,6 @@
 const renderField = ({
   input,
   label,
-  type,
   value,
   checked,
   meta: { touched, error, warning },
@@ -10,9 +9,9 @@ const renderField = ({
     <input
       {...input}
       placeholder={label}
-      type={type}
       value={value}
       checked={checked}
+      type="checkbox"
     />
     <label>{label}</label>
   </div>

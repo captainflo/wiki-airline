@@ -6,4 +6,7 @@ module.exports = (app) => {
 
   // Fetch All Flights
   app.get('/api/flights', Flight.fetchAllFlights);
+
+  // get list Flights
+  app.post('/api/list/flights', Flight.getListFlights);
 };

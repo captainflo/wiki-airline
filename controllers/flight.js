@@ -35,6 +35,23 @@ exports.fetchAllFlights = async function (req, res, next) {
   res.status(201).send(flights);
 };
 
+// Get List of Flight by search
+exports.getListFlights = async function (req, res, next) {
+  const { from, to, depart, returnDate } = req.body;
+  const flights = await Flight.find({
+    $or: [
+      { from: from, to: to, depart: depart },
+      { from: to, to: from, depart: returnDate },
+    ],
+  });
+
+  if (!flights) {
+    res.send('No flights founds...');
+  }
+
+  res.status(201).send(flights);
+};
+
 // // Fetch Ticket
 // exports.fetchTicket = async function (req, res, next) {
 //   const ticket = await Ticket.findById(req.params.id);

@@ -5,4 +5,5 @@ export const AUTH_ERROR = 'auth_error';
 
 export const FLIGHT = 'flight';
 export const FLIGHTS = 'flights';
+export const LIST_FLIGHTS = 'list_flights';
 export const FLIGHT_ERROR = 'flight';

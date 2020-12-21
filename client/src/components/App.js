@@ -13,6 +13,7 @@ import EditUser from './user/EditUser';
 import Header from './utils/Header';
 import Footer from './utils/Footer';
 import NewFlight from './flights/NewFlight';
+import ListFlights from './pages/ListFlights';
 
 const App = (props) => {
   const user = useSelector((state) => state.auth.user);
@@ -37,6 +38,7 @@ const App = (props) => {
             <Route exact path="/user/:id" component={ShowUser} />
             <Route exact path="/user/edit/:id" component={EditUser} />
             <Route exact path="/flight/new" component={NewFlight} />
+            <Route exact path="/list/flights" component={ListFlights} />
           </div>
         ) : (
           ''
