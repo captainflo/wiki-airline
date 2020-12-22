@@ -27,7 +27,6 @@ const validate = (values) => {
   ) {
     errors.returnDate = 'must be higher than depart';
   }
-
   return errors;
 };
 

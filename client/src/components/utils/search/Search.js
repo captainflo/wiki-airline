@@ -5,9 +5,21 @@ import { connect } from 'react-redux';
 import * as actions from '../../actions';
 import validate from './form/validation';
 import renderField from './form/renderField';
-import renderCheckbox from './form/renderCheckbox';
+import renderSelectField from './form/renderSelectField';
 
 import '../../../css/search.css';
+
+const persons = [
+  { title: 1 },
+  { title: 2 },
+  { title: 3 },
+  { title: 4 },
+  { title: 5 },
+  { title: 6 },
+  { title: 7 },
+  { title: 8 },
+  { title: 9 },
+];
 
 const Search = (props) => {
   const { handleSubmit, submitting } = props;
@@ -65,7 +77,17 @@ const Search = (props) => {
         ) : (
           ''
         )}
-
+        <Field
+          name="persons"
+          component={renderSelectField}
+          label={'Number of passengers'}
+        >
+          {persons.map((option) => (
+            <option key={option.title} value={option.title}>
+              {option.title}
+            </option>
+          ))}
+        </Field>
         <div>
           <button
             className="btn btn-primary "
@@ -82,5 +104,11 @@ const Search = (props) => {
 
 export default compose(
   connect(null, actions),
-  reduxForm({ form: 'SearchForm', validate })
+  reduxForm({
+    form: 'SearchForm',
+    validate,
+    initialValues: {
+      persons: 1,
+    },
+  })
 )(Search);
