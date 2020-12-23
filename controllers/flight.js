@@ -15,6 +15,8 @@ exports.createFlight = async function (req, res, next) {
     photo:
       photo ||
       'https://res.cloudinary.com/dwtc6zep7/image/upload/v1608305423/wiki-airline/bookaflight.jpg',
+    company:
+      'https://res.cloudinary.com/dwtc6zep7/image/upload/v1608743764/wiki-airline/airlines.png',
   });
 
   await flight.save(function (error, flight) {

@@ -34,6 +34,9 @@ const flightSchema = new Schema({
   photo: {
     type: String,
   },
+  company: {
+    type: String,
+  },
 });
 
 // Create the model class
