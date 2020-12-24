@@ -16,6 +16,31 @@
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 20px;
+  padding: 20px 30px 10px 30px;
+}
+
+.wrapper-flightCart h2 {
+  font-size: 18px;
+  color: #0078d2;
+}
+
+.wrapper-flightCart i {
+  color: #0078d2;
+  font-size: 16px;
+}
+
+.wrapper-flightCart hr {
+  clear: both;
+}
+
+.total-price {
+  float: right;
+  color: #36495a;
+  font-size: 18px;
+}
+
+.total-price span {
+  color: #0078d2;
 }
 
 @media only screen and (min-width: 824px) {
@@ -24,3 +49,6 @@
     width: 30%;
   }
 }
+
+/* color: #36495a;
+#0078d2; */

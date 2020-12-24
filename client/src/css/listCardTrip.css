@@ -7,6 +7,10 @@
   color: #36495a;
 }
 
+.selected {
+  border: 2px solid #0078d2;
+}
+
 .card-trip {
   border-radius: 8px;
   display: flex;

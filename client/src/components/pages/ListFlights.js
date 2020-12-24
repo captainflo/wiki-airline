@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { connect, useSelector } from 'react-redux';
 import * as actions from '../actions';
 import ListCardFlight from '../utils/ListCardFlight';
-import FlightCart from '../utils/FlightCart';
+import FlightCart from '../utils/cart/FlightCart';
 import Loading from '../utils/Loading';
 
 const ListFlights = (props) => {
@@ -15,17 +15,18 @@ const ListFlights = (props) => {
   const [returnFlight, setReturnFlight] = useState({});
   const [costWay, setCostAway] = useState(0);
   const [costReturn, setCostReturn] = useState(0);
-
-  // console.log(listFlights);
-  // console.log(props.location.state);
+  const [isActive, setActive] = useState('');
+  const [isActiveReturn, setisActiveReturn] = useState('');
 
   const selectedFlight = (flight) => {
     if (props.location.state.from === flight.from) {
       setWayFlight(flight);
       setCostAway(flight.price);
+      setActive(flight._id);
     } else {
       setReturnFlight(flight);
       setCostReturn(flight.price);
+      setisActiveReturn(flight._id);
     }
   };
 
@@ -42,6 +43,7 @@ const ListFlights = (props) => {
         key={flight._id}
         flight={flight}
         selectedFlight={selectedFlight}
+        isActive={isActive}
       />
     ));
 
@@ -52,6 +54,7 @@ const ListFlights = (props) => {
         key={flight._id}
         flight={flight}
         selectedFlight={selectedFlight}
+        isActive={isActiveReturn}
       />
     ));
 

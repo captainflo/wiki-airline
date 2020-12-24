@@ -1,13 +1,21 @@
 import moment from 'moment';
 import '../../css/listCardTrip.css';
 
-const ListCardFlight = ({ flight, selectedFlight }) => {
+const ListCardFlight = ({ flight, selectedFlight, isActive }) => {
   const time = moment
     .utc(moment(flight.arrTime).diff(moment(flight.depTime)))
     .format('HH:mm');
 
   return (
-    <div className="card-trip-wrapper" onClick={() => selectedFlight(flight)}>
+    <div
+      refs={flight._id}
+      className={
+        isActive === flight._id
+          ? 'card-trip-wrapper selected'
+          : 'card-trip-wrapper'
+      }
+      onClick={() => selectedFlight(flight)}
+    >
       <h2>
         {flight.from} <i className="fas fa-plane"></i> {flight.to}
       </h2>
