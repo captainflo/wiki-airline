@@ -5,6 +5,7 @@
   padding: 20px;
   margin-bottom: 20px;
   color: #36495a;
+  cursor: pointer;
 }
 
 .selected {

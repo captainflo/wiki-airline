@@ -4,6 +4,7 @@ import * as actions from '../actions';
 import ListCardFlight from '../utils/ListCardFlight';
 import FlightCart from '../utils/cart/FlightCart';
 import Loading from '../utils/Loading';
+import '../../css/listFlight.css';
 
 const ListFlights = (props) => {
   useEffect(() => {
@@ -59,39 +60,47 @@ const ListFlights = (props) => {
     ));
 
   return (
-    <div className="container">
-      <div className="row">
-        <h1 className="text-center">
+    <div>
+      <div className="wrapper-list-title">
+        <h1>
           {props.location.state.from} <i className="fas fa-map-signs"></i>{' '}
           {props.location.state.to}
         </h1>
-        <div className="col-md-7">
-          {displayFlightAway.length !== 0 ? (
-            <div>
-              <h2>List Flights Away</h2>
-              {displayFlightAway}
-            </div>
-          ) : (
-            <div>no more flight from this date</div>
-          )}
-          {displayFlightReturn.length !== 0 ? <h2>List Flights Return</h2> : ''}
-          {displayFlightReturn.length === 0 &&
-          props.location.state.returnDate ? (
-            <div>
-              no more return flight for {props.location.state.returnDate}
-            </div>
-          ) : (
-            <div>{displayFlightReturn}</div>
-          )}
-        </div>
-        <div className="col-md-4">
-          <FlightCart
-            wayFlight={wayFlight}
-            search={props.location.state}
-            returnFlight={returnFlight}
-            costWay={costWay}
-            costReturn={costReturn}
-          />
+      </div>
+      <div className="container">
+        <div className="row">
+          <div className="col-md-7">
+            {displayFlightAway.length !== 0 ? (
+              <div>
+                <h2 className="title-list">Flights way</h2>
+                {displayFlightAway}
+              </div>
+            ) : (
+              <div>no more flight from this date</div>
+            )}
+            {displayFlightReturn.length !== 0 ? (
+              <h2 className="title-list">Flights Return</h2>
+            ) : (
+              ''
+            )}
+            {displayFlightReturn.length === 0 &&
+            props.location.state.returnDate ? (
+              <div>
+                no more return flight for {props.location.state.returnDate}
+              </div>
+            ) : (
+              <div>{displayFlightReturn}</div>
+            )}
+          </div>
+          <div className="col-md-4">
+            <FlightCart
+              wayFlight={wayFlight}
+              search={props.location.state}
+              returnFlight={returnFlight}
+              costWay={costWay}
+              costReturn={costReturn}
+            />
+          </div>
         </div>
       </div>
     </div>

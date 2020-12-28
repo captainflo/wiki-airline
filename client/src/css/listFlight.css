@@ -1,0 +1,26 @@
+.wrapper-list-title {
+  background: #0078d2; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #0078d2,
+    #6dd5fa,
+    #ffffff
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #0078d2,
+    #6dd5fa,
+    #ffffff
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color: #fff;
+  padding: 20px;
+  margin-bottom: 30px;
+}
+
+.wrapper-list-title h1 {
+  margin-left: 4%;
+}
+
+.title-list {
+  margin-bottom: 30px;
+}

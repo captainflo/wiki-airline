@@ -40,6 +40,9 @@ const FlightCart = ({
         <div className="total-price">
           Total: <span>${total}</span>
         </div>
+        <div className="text-center">
+          <button className="btn btn-primary">Payment</button>
+        </div>
       </div>
     </div>
   );
