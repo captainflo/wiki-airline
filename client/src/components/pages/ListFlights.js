@@ -11,6 +11,7 @@ const ListFlights = (props) => {
     props.getListFlights(props.location.state);
   }, [props, props.getListFlights]);
   const listFlights = useSelector((state) => state.plane.listFlights);
+  const user = useSelector((state) => state.auth.user);
 
   const [wayFlight, setWayFlight] = useState({});
   const [returnFlight, setReturnFlight] = useState({});
@@ -18,6 +19,7 @@ const ListFlights = (props) => {
   const [costReturn, setCostReturn] = useState(0);
   const [isActive, setActive] = useState('');
   const [isActiveReturn, setisActiveReturn] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
   const selectedFlight = (flight) => {
     if (props.location.state.from === flight.from) {
@@ -31,11 +33,23 @@ const ListFlights = (props) => {
     }
   };
 
+  if (isLoading) {
+    return <Loading />;
+  }
+
   if (!listFlights) {
     return <Loading />;
   } else if (listFlights.length === 0) {
     return <div>no flight</div>;
   }
+
+  const createOrder = (OrderValue) => {
+    setIsLoading(true);
+    props.createOrder(OrderValue, () => {
+      setIsLoading(false);
+      props.history.push(`/`);
+    });
+  };
 
   const displayFlightAway = listFlights
     .filter((flight) => flight.from === props.location.state.from)
@@ -99,6 +113,8 @@ const ListFlights = (props) => {
               returnFlight={returnFlight}
               costWay={costWay}
               costReturn={costReturn}
+              user={user}
+              createOrder={createOrder}
             />
           </div>
         </div>

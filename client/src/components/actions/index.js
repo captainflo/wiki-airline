@@ -8,6 +8,7 @@ import {
   LIST_FLIGHTS,
   FLIGHT_ERROR,
   FLIGHTS,
+  ORDER_ERROR,
 } from './types';
 
 //////////////////////////////// Authentification //////////////////////////////////////////
@@ -119,3 +120,26 @@ export const getListFlights = (form) => async (dispatch) => {
     });
   }
 };
+//////////////////////////////// Orders ///////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////
+
+// Create New Order
+export const createOrder = (value, callback) => async (dispatch) => {
+  try {
+    await axios.post(`/api/order/new`, value);
+    callback();
+  } catch (e) {
+    dispatch({ type: ORDER_ERROR, payload: 'can create order' });
+  }
+};
+
+// Fetch Order by userId
+// export const fetchOrdersByUserId = (userId) => async (dispatch) => {
+//   const id = { userId };
+//   try {
+//     const response = await axios.post('/api/orders', id);
+//     dispatch({ type: ORDERS, payload: response.data });
+//   } catch (e) {
+//     dispatch({ type: ORDER_ERROR, payload: 'cannot find Order...' });
+//   }
+// };

@@ -7,3 +7,5 @@ export const FLIGHT = 'flight';
 export const FLIGHTS = 'flights';
 export const LIST_FLIGHTS = 'list_flights';
 export const FLIGHT_ERROR = 'flight';
+
+export const ORDER_ERROR = 'order_error';

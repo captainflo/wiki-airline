@@ -2,8 +2,8 @@
 module.exports = {
   mongoURI: process.env.MONGO_URI,
   cookieKey: process.env.COOKIE_KEY,
-  // stripePublishablekey: process.env.STRIPE_PUBLISH,
-  // stripeSecretkey: process.env.STRIPE_SECRET,
+  stripePublishablekey: process.env.STRIPE_PUBLISH,
+  stripeSecretkey: process.env.STRIPE_SECRET,
   secret: process.env.SECRET,
   // sendGrid: process.env.SENDGRID,
   cloudinaryClientName: process.env.CLOUDINARY_NAME,

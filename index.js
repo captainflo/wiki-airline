@@ -30,6 +30,7 @@ app.use(passport.session());
 require('./routes/authRoutes')(app);
 require('./routes/cloudinaryRoutes')(app);
 require('./routes/flightRoutes')(app);
+require('./routes/orderRoutes')(app);
 
 // Connect Mongo Atlas
 mongoose.connect(keys.mongoURI, {

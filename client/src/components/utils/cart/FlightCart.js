@@ -1,12 +1,15 @@
 import '../../../css/flightCart.css';
 import FlightInfo from './FlightInfo';
+import StripeCheckout from 'react-stripe-checkout';
 
 const FlightCart = ({
   wayFlight,
-  search,
   returnFlight,
+  search,
   costWay,
   costReturn,
+  user,
+  createOrder,
 }) => {
   let total = (costWay + costReturn) * search.persons;
   return (
@@ -41,11 +44,38 @@ const FlightCart = ({
           Total: <span>${total}</span>
         </div>
         <div className="text-center">
-          <button className="btn btn-primary">Payment</button>
+          {search.returnDate && Object.keys(returnFlight).length === 0 ? (
+            ''
+          ) : (
+            <div>
+              {Object.keys(wayFlight).length !== 0 ? (
+                <StripeCheckout
+                  token={({ id }) =>
+                    createOrder({
+                      valueForm: {
+                        wayFlight,
+                        returnFlight,
+                        total,
+                        user,
+                        token: id,
+                      },
+                    })
+                  }
+                  stripeKey={process.env.REACT_APP_STRIPE_KEY}
+                  amount={total * 100}
+                  name="Wiki Airline"
+                >
+                  <button className="btn btn-primary ">Payment</button>
+                </StripeCheckout>
+              ) : (
+                ''
+              )}
+            </div>
+          )}
         </div>
       </div>
     </div>
   );
 };
-
+// Object.keys(wayFlight).length !== 0
 export default FlightCart;
