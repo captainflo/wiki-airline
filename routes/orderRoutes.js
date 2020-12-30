@@ -5,7 +5,7 @@ module.exports = (app) => {
   app.post('/api/order/new', Order.createOrder);
 
   // Fetch All orders By UserId
-  // app.post('/api/orders', Order.fetchAllOrdersByUserId);
+  app.post('/api/orders', Order.fetchAllOrdersByUserId);
 
   // // Fetch order
   // app.get('/api/order/:id', Order.fetchOrder);

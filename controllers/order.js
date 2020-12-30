@@ -54,12 +54,13 @@ exports.createOrder = async function (req, res, next) {
 };
 
 // Fetch Orders by UserId
-// exports.fetchAllOrdersByUserId = async function (req, res, next) {
-//   const orders = await Order.find({ userId: req.body.userId }).populate(
-//     'ticket'
-//   );
-//   if (!orders) {
-//     res.send({ error: 'no Orders found' });
-//   }
-//   res.send(orders);
-// };
+exports.fetchAllOrdersByUserId = async function (req, res, next) {
+  const orders = await Order.find({ userId: req.body.userId }).populate(
+    'flight'
+  );
+  if (!orders) {
+    res.send({ error: 'no Orders found' });
+  }
+  console.log(orders);
+  res.send(orders);
+};

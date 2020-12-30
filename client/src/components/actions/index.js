@@ -8,6 +8,7 @@ import {
   LIST_FLIGHTS,
   FLIGHT_ERROR,
   FLIGHTS,
+  ORDERS,
   ORDER_ERROR,
 } from './types';
 
@@ -134,12 +135,12 @@ export const createOrder = (value, callback) => async (dispatch) => {
 };
 
 // Fetch Order by userId
-// export const fetchOrdersByUserId = (userId) => async (dispatch) => {
-//   const id = { userId };
-//   try {
-//     const response = await axios.post('/api/orders', id);
-//     dispatch({ type: ORDERS, payload: response.data });
-//   } catch (e) {
-//     dispatch({ type: ORDER_ERROR, payload: 'cannot find Order...' });
-//   }
-// };
+export const fetchOrdersByUserId = (userId) => async (dispatch) => {
+  const id = { userId };
+  try {
+    const response = await axios.post('/api/orders', id);
+    dispatch({ type: ORDERS, payload: response.data });
+  } catch (e) {
+    dispatch({ type: ORDER_ERROR, payload: 'cannot find Order...' });
+  }
+};

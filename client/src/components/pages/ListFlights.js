@@ -90,7 +90,7 @@ const ListFlights = (props) => {
                 {displayFlightAway}
               </div>
             ) : (
-              <div>no more flight from this date</div>
+              <div> no more flight for {props.location.state.depart}</div>
             )}
             {displayFlightReturn.length !== 0 ? (
               <h2 className="title-list">Flights Return</h2>
