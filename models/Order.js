@@ -13,6 +13,10 @@ const orderSchema = new Schema({
       ref: 'flights',
     },
   ],
+  persons: {
+    type: Number,
+    required: true,
+  },
 });
 
 // Create the model class

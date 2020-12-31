@@ -47,7 +47,7 @@ const ListFlights = (props) => {
     setIsLoading(true);
     props.createOrder(OrderValue, () => {
       setIsLoading(false);
-      props.history.push(`/`);
+      props.history.push(`/orders`);
     });
   };
 

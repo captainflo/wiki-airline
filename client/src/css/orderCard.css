@@ -1,0 +1,30 @@
+.card-order {
+  background: white;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  margin-bottom: 20px;
+  padding: 20px;
+}
+
+.card-order h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+.title-list-order {
+  display: flex;
+  justify-content: left;
+  justify-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.title-list-order > div {
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+
+.company {
+  margin-top: 15px;
+  width: 150px;
+  height: 30px;
+}

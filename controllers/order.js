@@ -8,7 +8,14 @@ const stripe = require('stripe')(keys.stripeSecretkey);
 // Create Order
 exports.createOrder = async function (req, res, next) {
   console.log(req.body);
-  const { wayFlight, returnFlight, total, user, token } = req.body.valueForm;
+  const {
+    wayFlight,
+    returnFlight,
+    total,
+    user,
+    token,
+    search,
+  } = req.body.valueForm;
 
   // Stripe Payment
   const charge = await stripe.charges.create({
@@ -22,6 +29,7 @@ exports.createOrder = async function (req, res, next) {
     const order = new Order({
       userId: user._id,
       flight: [wayFlight._id, returnFlight._id],
+      persons: search.persons,
     });
 
     await order.save(async function (error, order) {
@@ -47,7 +55,7 @@ exports.createOrder = async function (req, res, next) {
       //     console.error(error.response.body);
       //   }
       // }
-      console.log(order);
+
       res.status(201).send(order);
     });
   }

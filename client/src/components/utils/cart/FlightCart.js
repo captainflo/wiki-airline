@@ -58,6 +58,7 @@ const FlightCart = ({
                         total,
                         user,
                         token: id,
+                        search,
                       },
                     })
                   }
