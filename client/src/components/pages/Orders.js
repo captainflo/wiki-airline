@@ -21,14 +21,6 @@ const Orders = (props) => {
     return <div>No Orders</div>;
   }
 
-  // const flights = orders.flatMap(({ flight }) => flight);
-  // console.log(flights);
-  // const display = flights.map((flight, i) => {
-  //   return (
-  //     <ListCardFlight key={i} flight={flight} selectedFlight={selectedFlight} />
-  //   );
-  // });
-
   const display = orders.map((order, i) => {
     return <OrderCard key={i} order={order} />;
   });

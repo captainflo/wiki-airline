@@ -8,6 +8,5 @@ cloudinary.config({
 });
 
 exports.deleteImage = function (req, res, next) {
-  console.log(req.body.img);
   cloudinary.uploader.destroy(req.body.img);
 };

@@ -7,7 +7,6 @@ const stripe = require('stripe')(keys.stripeSecretkey);
 
 // Create Order
 exports.createOrder = async function (req, res, next) {
-  console.log(req.body);
   const {
     wayFlight,
     returnFlight,
@@ -30,6 +29,7 @@ exports.createOrder = async function (req, res, next) {
       userId: user._id,
       flight: [wayFlight._id, returnFlight._id],
       persons: search.persons,
+      total: total,
     });
 
     await order.save(async function (error, order) {
@@ -69,6 +69,5 @@ exports.fetchAllOrdersByUserId = async function (req, res, next) {
   if (!orders) {
     res.send({ error: 'no Orders found' });
   }
-  console.log(orders);
   res.send(orders);
 };

@@ -5,6 +5,7 @@ import ListCardFlight from '../utils/ListCardFlight';
 import FlightCart from '../utils/cart/FlightCart';
 import Loading from '../utils/Loading';
 import '../../css/listFlight.css';
+import _ from 'lodash';
 
 const ListFlights = (props) => {
   useEffect(() => {
@@ -51,7 +52,7 @@ const ListFlights = (props) => {
     });
   };
 
-  const displayFlightAway = listFlights
+  const displayFlightAway = _.orderBy(listFlights, ['depTime'], ['asc'])
     .filter((flight) => flight.from === props.location.state.from)
     .map((flight) => (
       <ListCardFlight
@@ -62,7 +63,7 @@ const ListFlights = (props) => {
       />
     ));
 
-  const displayFlightReturn = listFlights
+  const displayFlightReturn = _.orderBy(listFlights, ['depTime'], ['asc'])
     .filter((flight) => flight.from === props.location.state.to)
     .map((flight) => (
       <ListCardFlight
@@ -90,7 +91,16 @@ const ListFlights = (props) => {
                 {displayFlightAway}
               </div>
             ) : (
-              <div> no more flight for {props.location.state.depart}</div>
+              <div>
+                {' '}
+                no more flight for {props.location.state.depart}{' '}
+                <button
+                  className="btn btn-primary"
+                  onClick={() => props.history.goBack()}
+                >
+                  back
+                </button>{' '}
+              </div>
             )}
             {displayFlightReturn.length !== 0 ? (
               <h2 className="title-list">Flights Return</h2>
@@ -101,6 +111,12 @@ const ListFlights = (props) => {
             props.location.state.returnDate ? (
               <div>
                 no more return flight for {props.location.state.returnDate}
+                <button
+                  className="btn btn-primary"
+                  onClick={() => props.history.goBack()}
+                >
+                  back
+                </button>
               </div>
             ) : (
               <div>{displayFlightReturn}</div>

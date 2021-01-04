@@ -11,10 +11,18 @@ const OrderCard = ({ order }) => {
   });
   return (
     <div className="card-order">
-      <h2>
-        Order: {order._id.slice(0, 8).toUpperCase()} Passenger: {order.persons}
-      </h2>
+      <div className="card-order-title">
+        <h3>Order: {order._id.slice(0, 8).toUpperCase()}</h3>
+        <h3>
+          Passenger <i className="fas fa-male"></i>: {order.persons}
+        </h3>
+      </div>
       <div className="row">{display}</div>
+      <div className="total">
+        <h3>
+          Total: <span>${order.total}</span>
+        </h3>
+      </div>
     </div>
   );
 };
