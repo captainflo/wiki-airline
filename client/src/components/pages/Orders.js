@@ -28,6 +28,7 @@ const Orders = (props) => {
   return (
     <div className="container">
       <h4 className="my-4 ">List all Orders</h4>
+      <hr className="hr-trending"></hr>
       <div className="row">
         <div className="col-md-8">{display}</div>
       </div>

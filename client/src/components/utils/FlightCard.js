@@ -20,9 +20,9 @@ const FlightCard = ({ flight }) => {
 
         <p className="price">$ {flight.price}</p>
       </div>
-      <div className="text-center card-footer">
+      {/* <div className="text-center card-footer">
         <button className="btn btn-primary">View Detail</button>
-      </div>
+      </div> */}
     </div>
   );
 };

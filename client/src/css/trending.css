@@ -1,0 +1,47 @@
+.hr-trending {
+  width: 200px;
+  border: 3px solid #0078d2;
+  opacity: 1;
+  border-radius: 8px;
+  margin-bottom: 40px;
+}
+
+/* [1] The container */
+.img-hover-zoom {
+  height: 400px; /* [1.1] Set it as per your need */
+  overflow: hidden; /* [1.2] Hide the overflowing of child elements */
+  border-radius: 8px;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* [2] Transition property for smooth transformation of images */
+.img-hover-zoom img {
+  width: 100%;
+  height: 400px;
+  transition: transform 0.5s ease;
+}
+
+/* [3] Finally, transforming the image when container gets hovered */
+.img-hover-zoom:hover img {
+  transform: scale(1.5);
+}
+
+.slogan {
+  font-size: 17px;
+  opacity: 0.7;
+  font-weight: bolder;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media only screen and (min-width: 1024px) {
+  .img-hover-zoom {
+    width: 100%;
+  }
+  .slogan {
+    width: 100%;
+  }
+}

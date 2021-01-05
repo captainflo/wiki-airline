@@ -35,6 +35,8 @@ const SampleFlights = (props) => {
   return (
     <div>
       <div className="container">
+        <h2 className="my-4 ">Our selection</h2>
+        <hr className="hr-trending"></hr>
         <div className="row">{displayFlights}</div>
       </div>
     </div>
