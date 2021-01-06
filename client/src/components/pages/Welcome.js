@@ -55,7 +55,7 @@ const Welcome = () => {
           </div>
         </div>
       </div>
-      <SampleFlights />
+      <SampleFlights user={user} />
       <Trending />
     </div>
   );

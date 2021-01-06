@@ -1,7 +1,8 @@
 import '../../css/flightCard.css';
 import moment from 'moment';
+import { Link } from 'react-router-dom';
 
-const FlightCard = ({ flight }) => {
+const FlightCard = ({ flight, onSubmit, user }) => {
   return (
     <div className="flightCard">
       <div className="flightCard-wrapper">
@@ -20,9 +21,20 @@ const FlightCard = ({ flight }) => {
 
         <p className="price">$ {flight.price}</p>
       </div>
-      {/* <div className="text-center card-footer">
-        <button className="btn btn-primary">View Detail</button>
-      </div> */}
+      {user ? (
+        <div
+          onClick={() => onSubmit(flight)}
+          className="text-center card-footer"
+        >
+          <button className="btn btn-primary">View Detail</button>
+        </div>
+      ) : (
+        <div className="text-center card-footer">
+          <Link className="btn btn-primary" to="/signin">
+            Login
+          </Link>
+        </div>
+      )}
     </div>
   );
 };
