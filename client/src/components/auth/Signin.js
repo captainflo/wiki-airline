@@ -52,7 +52,7 @@ const Signin = (props) => {
                 </div>
 
                 <button
-                  className="btn btn-primary shadow rounded"
+                  className="btn btn-primary shadow rounded my-4 "
                   type="submit"
                   disabled={submitting}
                 >

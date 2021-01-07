@@ -52,7 +52,7 @@ const EditUser = (props) => {
   };
 
   return (
-    <div>
+    <div className="container">
       <h4>Edit User</h4>
       <p>* Leave blank if doesn't want to change</p>
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -74,10 +74,15 @@ const EditUser = (props) => {
           image={image}
         />
         <div>{error ? <span>{error}</span> : ''}</div>
-        <button type="submit" disabled={submitting}>
+        <button className="btn btn-primary" type="submit" disabled={submitting}>
           Submit
         </button>
-        <button onClick={() => props.history.goBack()}>back</button>
+        <button
+          className="btn btn-primary"
+          onClick={() => props.history.goBack()}
+        >
+          back
+        </button>
       </form>
     </div>
   );

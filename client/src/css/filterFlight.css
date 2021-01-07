@@ -1,0 +1,11 @@
+.filter {
+  margin-top: 20px;
+  display: flex;
+  justify-content: start;
+  width: 300px;
+}
+
+.filter button {
+  margin-left: 5px;
+  background-color: #0078d2;
+}

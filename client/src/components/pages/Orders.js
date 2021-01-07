@@ -26,11 +26,16 @@ const Orders = (props) => {
   });
 
   return (
-    <div className="container">
-      <h4 className="my-4 ">List all Orders</h4>
-      <hr className="hr-trending"></hr>
-      <div className="row">
-        <div className="col-md-8">{display}</div>
+    <div>
+      <div className="wrapper-list-title">
+        <h1>Orders</h1>
+      </div>
+      <div className="container">
+        <h4 className="my-4">My flights Tickets</h4>
+        <hr className="hr-trending"></hr>
+        <div className="row">
+          <div className="col-md-8">{display}</div>
+        </div>
       </div>
     </div>
   );

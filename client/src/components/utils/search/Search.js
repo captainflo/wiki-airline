@@ -21,6 +21,22 @@ const persons = [
   { title: 9 },
 ];
 
+const location = [
+  { title: 'Miami' },
+  { title: 'Las Vegas' },
+  { title: 'Boston' },
+  { title: 'New York' },
+  { title: 'San Francisco' },
+];
+
+const locationReturn = [
+  { title: 'Las Vegas' },
+  { title: 'Miami' },
+  { title: 'Boston' },
+  { title: 'New York' },
+  { title: 'San Francisco' },
+];
+
 const Search = (props) => {
   const { handleSubmit, submitting } = props;
   return (
@@ -47,20 +63,20 @@ const Search = (props) => {
         <label>One way</label>
       </div>
       <form onSubmit={handleSubmit(props.onSubmit)}>
-        <Field
-          name="from"
-          type="text"
-          component={renderField}
-          label="From"
-          placeholder="Miami"
-        />
-        <Field
-          name="to"
-          type="text"
-          component={renderField}
-          label="To"
-          placeholder="Las Vegas"
-        />
+        <Field name="from" component={renderSelectField} label={'From'}>
+          {location.map((option) => (
+            <option key={option.title} value={option.title}>
+              {option.title}
+            </option>
+          ))}
+        </Field>
+        <Field name="to" component={renderSelectField} label={'To'}>
+          {locationReturn.map((option) => (
+            <option key={option.title} value={option.title}>
+              {option.title}
+            </option>
+          ))}
+        </Field>
         <Field
           type="date"
           name="depart"
@@ -109,6 +125,8 @@ export default compose(
     validate,
     initialValues: {
       persons: 1,
+      from: 'Miami',
+      to: 'Las Vegas',
     },
   })
 )(Search);

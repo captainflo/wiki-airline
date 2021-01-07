@@ -1,5 +1,5 @@
 import moment from 'moment';
-import '../../css/listCardTrip.css';
+import '../../../css/listCardTrip.css';
 
 const ListCardFlight = ({ flight, selectedFlight, isActive }) => {
   const time = moment

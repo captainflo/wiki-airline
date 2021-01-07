@@ -1,16 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { connect, useSelector } from 'react-redux';
 import * as actions from '../actions';
-import ListCardFlight from '../utils/ListCardFlight';
+import ListCardFlight from '../utils/listFlight/ListCardFlight';
 import FlightCart from '../utils/cart/FlightCart';
 import Loading from '../utils/Loading';
 import '../../css/listFlight.css';
 import _ from 'lodash';
+import FilterFlight from '../utils/listFlight/FilterFlight';
 
 const ListFlights = (props) => {
   useEffect(() => {
     props.getListFlights(props.location.state);
   }, [props, props.getListFlights]);
+
   const listFlights = useSelector((state) => state.plane.listFlights);
   const user = useSelector((state) => state.auth.user);
 
@@ -21,6 +23,8 @@ const ListFlights = (props) => {
   const [isActive, setActive] = useState('');
   const [isActiveReturn, setisActiveReturn] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [filter, setFilter] = useState('depTime');
+  const [filterOrder, setFilterOrder] = useState('asc');
 
   const selectedFlight = (flight) => {
     if (props.location.state.from === flight.from) {
@@ -52,7 +56,7 @@ const ListFlights = (props) => {
     });
   };
 
-  const displayFlightAway = _.orderBy(listFlights, ['depTime'], ['asc'])
+  const displayFlightAway = _.orderBy(listFlights, [filter], [filterOrder])
     .filter((flight) => flight.from === props.location.state.from)
     .map((flight) => (
       <ListCardFlight
@@ -63,7 +67,7 @@ const ListFlights = (props) => {
       />
     ));
 
-  const displayFlightReturn = _.orderBy(listFlights, ['depTime'], ['asc'])
+  const displayFlightReturn = _.orderBy(listFlights, [filter], [filterOrder])
     .filter((flight) => flight.from === props.location.state.to)
     .map((flight) => (
       <ListCardFlight
@@ -74,12 +78,17 @@ const ListFlights = (props) => {
       />
     ));
 
+  const handleFilter = (value) => {
+    setFilter(value.type);
+    setFilterOrder(value.order);
+  };
+
   return (
     <div>
       <div className="wrapper-list-title">
         <h1>
           {props.location.state.from} <i className="fas fa-map-signs"></i>{' '}
-          {props.location.state.to}
+          {props.location.state.to} <FilterFlight handleFilter={handleFilter} />
         </h1>
       </div>
       <div className="container">
