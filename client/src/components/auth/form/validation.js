@@ -7,6 +7,13 @@ const validate = (values) => {
     errors.email = 'Invalid email address.';
   }
 
+  if (!values.firstName) {
+    errors.firstName = 'Required';
+  }
+  if (!values.lastName) {
+    errors.lastName = 'Required';
+  }
+
   if (!values.password) {
     errors.password = 'Required';
   } else if (

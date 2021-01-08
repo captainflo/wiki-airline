@@ -41,6 +41,18 @@ const Signup = (props) => {
                 label="Email"
               />
               <Field
+                name="firstName"
+                type="text"
+                component={renderField}
+                label="Firstname"
+              />
+              <Field
+                name="lastName"
+                type="text"
+                component={renderField}
+                label="Lastname"
+              />
+              <Field
                 name="password"
                 type="password"
                 component={renderField}
