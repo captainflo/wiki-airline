@@ -1,13 +1,12 @@
 import { useState } from 'react';
 import { Modal, Button } from 'react-bootstrap';
 
-const Modals = ({ flight, search, seatSelected, title }) => {
+const Modals = ({ flight, search, selected, title, index }) => {
   const [lgShow, setLgShow] = useState(false);
-
   return (
     <>
       <span className="text-danger" onClick={() => setLgShow(true)}>
-        Select seat
+        {title} seat
       </span>
       <Modal
         size="xl"
@@ -17,13 +16,13 @@ const Modals = ({ flight, search, seatSelected, title }) => {
       >
         <Modal.Header closeButton>
           <Modal.Title id="modal">
-            {flight.from} -- {flight.to}: {title} your seat ({search.persons})
+            {flight.from} -- {flight.to}: {title} your seat
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <div className="row">
-            <p onClick={() => seatSelected('one')}>seat one</p>
-            <p onClick={() => seatSelected('two')}>seat two</p>
+            <p onClick={() => selected(index, 'HBD')}>seat one</p>
+            <p onClick={() => selected(index, 'FGV')}>seat two</p>
           </div>
         </Modal.Body>
       </Modal>

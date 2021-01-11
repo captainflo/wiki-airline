@@ -26,15 +26,7 @@ const ListFlights = (props) => {
   const [filter, setFilter] = useState('depTime');
   const [filterOrder, setFilterOrder] = useState('asc');
   const [seat, setSeat] = useState([]);
-  const [returnSeat, setReturnSeat] = useState([]);
-
-  const seatSelected = (value) => {
-    setReturnSeat(value);
-  };
-
-  const seatReturnSelected = (value) => {
-    setSeat(value);
-  };
+  // const [returnSeat, setReturnSeat] = useState([]);
 
   const selectedFlight = (flight) => {
     if (props.location.state.from === flight.from) {
@@ -91,6 +83,18 @@ const ListFlights = (props) => {
   const handleFilter = (value) => {
     setFilter(value.type);
     setFilterOrder(value.order);
+  };
+
+  const addSeat = (i, value) => {
+    if (props.location.state.persons > seat.length) {
+      setSeat([...seat, value]);
+    }
+  };
+
+  const changeSeat = (i, value) => {
+    let seatCopy = [...seat];
+    seatCopy[i] = value;
+    setSeat(seatCopy);
   };
 
   return (
@@ -151,9 +155,8 @@ const ListFlights = (props) => {
               user={user}
               createOrder={createOrder}
               seat={seat}
-              seatSelected={seatSelected}
-              returnSeat={returnSeat}
-              seatReturnSelected={seatReturnSelected}
+              addSeat={addSeat}
+              changeSeat={changeSeat}
             />
           </div>
         </div>

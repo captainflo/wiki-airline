@@ -11,7 +11,8 @@ const FlightCart = ({
   user,
   createOrder,
   seat,
-  seatSelected,
+  addSeat,
+  changeSeat,
 }) => {
   let total = (costWay + costReturn) * search.persons;
   return (
@@ -25,7 +26,8 @@ const FlightCart = ({
             flight={wayFlight}
             search={search}
             seat={seat}
-            seatSelected={seatSelected}
+            addSeat={addSeat}
+            changeSeat={changeSeat}
           />
         ) : (
           'Select your flight'
@@ -42,7 +44,8 @@ const FlightCart = ({
                 flight={returnFlight}
                 search={search}
                 seat={seat}
-                seatSelected={seatSelected}
+                // seatSelected={seatSelected}
+                // seatChanged={seatChanged}
               />
             ) : (
               'Select your flight'
