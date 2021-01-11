@@ -11,6 +11,7 @@ const FlightCart = ({
   user,
   createOrder,
   seat,
+  seatSelected,
 }) => {
   let total = (costWay + costReturn) * search.persons;
   return (
@@ -20,7 +21,12 @@ const FlightCart = ({
           {search.from} to {search.to}
         </h2>
         {Object.keys(wayFlight).length ? (
-          <FlightInfo flight={wayFlight} search={search} seat={seat} />
+          <FlightInfo
+            flight={wayFlight}
+            search={search}
+            seat={seat}
+            seatSelected={seatSelected}
+          />
         ) : (
           'Select your flight'
         )}
@@ -32,7 +38,12 @@ const FlightCart = ({
             </h2>
 
             {Object.keys(returnFlight).length ? (
-              <FlightInfo flight={returnFlight} search={search} seat={seat} />
+              <FlightInfo
+                flight={returnFlight}
+                search={search}
+                seat={seat}
+                seatSelected={seatSelected}
+              />
             ) : (
               'Select your flight'
             )}

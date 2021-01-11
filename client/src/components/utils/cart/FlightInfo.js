@@ -1,7 +1,15 @@
 import '../../../css/flightInfo.css';
 import moment from 'moment';
+import Modals from '../Modals';
 
-const FlightInfo = ({ flight, search, seat }) => {
+const FlightInfo = ({
+  flight,
+  search,
+  seat,
+  seatSelected,
+  returnSeat,
+  seatReturnSelected,
+}) => {
   const total = search.persons * flight.price;
   return (
     <div className="flight-info-wrapper">
@@ -20,7 +28,34 @@ const FlightInfo = ({ flight, search, seat }) => {
       <p className="passenger">
         <i className="fas fa-male"></i> {search.persons} passenger(s)
       </p>
-
+      <p>
+        <img
+          className="seat"
+          src="https://res.cloudinary.com/dwtc6zep7/image/upload/v1610381377/wiki-airline/icons8-flight-seat-100.png"
+          alt="seat"
+        />{' '}
+        {seat.length < search.persons ? (
+          <div>
+            {seat}
+            <Modals
+              title={'selected'}
+              flight={flight}
+              search={search}
+              seatSelected={seatSelected}
+            />
+          </div>
+        ) : (
+          <div>
+            {returnSeat}{' '}
+            <Modals
+              title={'change'}
+              flight={flight}
+              search={search}
+              seatSelected={seatReturnSelected}
+            />
+          </div>
+        )}
+      </p>
       <p className="detail-price">
         <span>
           ( {search.persons} x ${flight.price} )
