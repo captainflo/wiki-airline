@@ -1,7 +1,7 @@
 import '../../../css/flightInfo.css';
 import moment from 'moment';
 
-const FlightInfo = ({ flight, search }) => {
+const FlightInfo = ({ flight, search, seat }) => {
   const total = search.persons * flight.price;
   return (
     <div className="flight-info-wrapper">
@@ -20,6 +20,7 @@ const FlightInfo = ({ flight, search }) => {
       <p className="passenger">
         <i className="fas fa-male"></i> {search.persons} passenger(s)
       </p>
+
       <p className="detail-price">
         <span>
           ( {search.persons} x ${flight.price} )

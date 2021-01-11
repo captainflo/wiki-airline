@@ -25,6 +25,7 @@ const ListFlights = (props) => {
   const [isLoading, setIsLoading] = useState(false);
   const [filter, setFilter] = useState('depTime');
   const [filterOrder, setFilterOrder] = useState('asc');
+  const [seat, setSeat] = useState([]);
 
   const selectedFlight = (flight) => {
     if (props.location.state.from === flight.from) {
@@ -140,6 +141,7 @@ const ListFlights = (props) => {
               costReturn={costReturn}
               user={user}
               createOrder={createOrder}
+              seat={seat}
             />
           </div>
         </div>

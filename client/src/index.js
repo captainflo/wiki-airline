@@ -14,7 +14,6 @@ const store = createStore(
   { auth: { authenticated: localStorage.getItem('token') } },
   applyMiddleware(reduxThunk)
 );
-
 ReactDOM.render(
   <Provider store={store}>
     <App />
