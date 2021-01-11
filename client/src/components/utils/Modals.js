@@ -23,6 +23,9 @@ const Modals = ({ flight, search, selected, title, index }) => {
           <div className="row">
             <p onClick={() => selected(index, 'HBD')}>seat one</p>
             <p onClick={() => selected(index, 'FGV')}>seat two</p>
+            <p onClick={() => selected(index, 'DFV')}>seat three</p>
+            <p onClick={() => selected(index, 'XSD')}>seat four</p>
+            <p onClick={() => selected(index, 'WED')}>seat five</p>
           </div>
         </Modal.Body>
       </Modal>

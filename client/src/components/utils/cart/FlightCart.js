@@ -13,6 +13,9 @@ const FlightCart = ({
   seat,
   addSeat,
   changeSeat,
+  returnSeat,
+  addSeatReturn,
+  changeSeatReturn,
 }) => {
   let total = (costWay + costReturn) * search.persons;
   return (
@@ -43,9 +46,9 @@ const FlightCart = ({
               <FlightInfo
                 flight={returnFlight}
                 search={search}
-                seat={seat}
-                // seatSelected={seatSelected}
-                // seatChanged={seatChanged}
+                seat={returnSeat}
+                addSeat={addSeatReturn}
+                changeSeat={changeSeatReturn}
               />
             ) : (
               'Select your flight'
@@ -63,7 +66,9 @@ const FlightCart = ({
             ''
           ) : (
             <div>
-              {Object.keys(wayFlight).length !== 0 ? (
+              {Object.keys(wayFlight).length !== 0 &&
+              seat.length == search.persons &&
+              returnSeat.length == search.persons ? (
                 <StripeCheckout
                   token={({ id }) =>
                     createOrder({
