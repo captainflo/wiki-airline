@@ -28,15 +28,26 @@ const ListFlights = (props) => {
   const [seat, setSeat] = useState([]);
   const [returnSeat, setReturnSeat] = useState([]);
 
+  let totalSeat = props.location.state.persons;
+  if (props.location.state.returnDate) {
+    totalSeat = props.location.state.persons * 2;
+  }
+
   const selectedFlight = (flight) => {
     if (props.location.state.from === flight.from) {
       setWayFlight(flight);
       setCostAway(flight.price);
       setActive(flight._id);
+      if (flight._id !== wayFlight._id) {
+        setSeat([]);
+      }
     } else {
       setReturnFlight(flight);
       setCostReturn(flight.price);
       setisActiveReturn(flight._id);
+      if (flight._id !== returnFlight._id) {
+        setReturnSeat([]);
+      }
     }
   };
 
@@ -172,6 +183,7 @@ const ListFlights = (props) => {
               returnSeat={returnSeat}
               addSeatReturn={addSeatReturn}
               changeSeatReturn={changeSeatReturn}
+              totalSeat={totalSeat}
             />
           </div>
         </div>

@@ -1,32 +1,34 @@
 import { useState } from 'react';
 import { Modal, Button } from 'react-bootstrap';
+import Plane from './Plane';
 
-const Modals = ({ flight, search, selected, title, index }) => {
-  const [lgShow, setLgShow] = useState(false);
+const Modals = ({ flight, search, selected, title, index, custom }) => {
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
   return (
     <>
-      <span className="text-danger" onClick={() => setLgShow(true)}>
+      <span className={custom} variant="primary" onClick={handleShow}>
         {title} seat
       </span>
+
       <Modal
         size="xl"
-        show={lgShow}
-        onHide={() => setLgShow(false)}
+        show={show}
+        onHide={handleClose}
+        backdrop="static"
+        keyboard={false}
         aria-labelledby="modal1"
       >
-        <Modal.Header closeButton>
+        <Modal.Header>
           <Modal.Title id="modal">
+            {' '}
             {flight.from} -- {flight.to}: {title} your seat
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <div className="row">
-            <p onClick={() => selected(index, 'HBD')}>seat one</p>
-            <p onClick={() => selected(index, 'FGV')}>seat two</p>
-            <p onClick={() => selected(index, 'DFV')}>seat three</p>
-            <p onClick={() => selected(index, 'XSD')}>seat four</p>
-            <p onClick={() => selected(index, 'WED')}>seat five</p>
-          </div>
+          <Plane selected={selected} index={index} handleClose={handleClose} />
         </Modal.Body>
       </Modal>
     </>

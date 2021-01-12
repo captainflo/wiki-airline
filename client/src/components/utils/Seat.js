@@ -15,6 +15,7 @@ const Seat = ({ title, flight, search, index, place, changeSeat }) => {
         search={search}
         selected={changeSeat}
         index={index}
+        custom={'custom'}
       />
     </div>
   );

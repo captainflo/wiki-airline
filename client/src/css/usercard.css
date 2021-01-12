@@ -16,7 +16,7 @@
 
 .user-avatar img {
   border-radius: 50%;
-  border: 3px solid blue;
+  border: 3px solid #0078d2;
   -webkit-transform: scale(1.05);
   -ms-transform: scale(1.05);
   transform: scale(1.05);

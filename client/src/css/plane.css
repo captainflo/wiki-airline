@@ -1,0 +1,54 @@
+.wrapper-seat {
+  background-color: black;
+  width: 100%;
+}
+
+.img-plane {
+  width: 100%;
+}
+
+.seat-plane {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.seat-img {
+  width: 29px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  cursor: pointer;
+}
+
+.seat-img:hover {
+  background: #0078d2;
+  border-radius: 8px;
+}
+
+.seat-img:focus {
+  background: #0078d2;
+  border-radius: 8px;
+}
+
+.seat-plane p {
+  width: 33.33%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.custom {
+  color: #36495a;
+  font-size: 12px;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+.select-seat {
+  color: red;
+  cursor: pointer;
+}
+
+@media only screen and (min-width: 824px) {
+  .seat-plane {
+  }
+}

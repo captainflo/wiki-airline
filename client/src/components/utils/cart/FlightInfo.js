@@ -6,6 +6,7 @@ import Seat from '../Seat';
 const FlightInfo = ({ flight, search, seat, addSeat, changeSeat }) => {
   const total = search.persons * flight.price;
   const displaySeat = seat.map((place, i) => {
+    console.log(seat);
     return (
       <Seat
         key={i}
@@ -39,10 +40,11 @@ const FlightInfo = ({ flight, search, seat, addSeat, changeSeat }) => {
       <div>{displaySeat}</div>
       {seat.length < search.persons ? (
         <Modals
-          title={'selected'}
+          title={'Select'}
           flight={flight}
           search={search}
           selected={addSeat}
+          custom={'select-seat'}
         />
       ) : (
         ''

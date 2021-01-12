@@ -16,8 +16,10 @@ const FlightCart = ({
   returnSeat,
   addSeatReturn,
   changeSeatReturn,
+  totalSeat,
 }) => {
   let total = (costWay + costReturn) * search.persons;
+  const totalSeatSelected = seat.length + returnSeat.length;
   return (
     <div className="container">
       <div className="wrapper-flightCart">
@@ -67,8 +69,7 @@ const FlightCart = ({
           ) : (
             <div>
               {Object.keys(wayFlight).length !== 0 &&
-              seat.length == search.persons &&
-              returnSeat.length == search.persons ? (
+              totalSeatSelected === totalSeat ? (
                 <StripeCheckout
                   token={({ id }) =>
                     createOrder({
@@ -98,5 +99,4 @@ const FlightCart = ({
     </div>
   );
 };
-// Object.keys(wayFlight).length !== 0
 export default FlightCart;
