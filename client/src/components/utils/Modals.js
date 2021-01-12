@@ -1,8 +1,16 @@
 import { useState } from 'react';
-import { Modal, Button } from 'react-bootstrap';
+import { Modal } from 'react-bootstrap';
 import Plane from './Plane';
 
-const Modals = ({ flight, search, selected, title, index, custom }) => {
+const Modals = ({
+  flight,
+  search,
+  selected,
+  title,
+  index,
+  custom,
+  seatTaken,
+}) => {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -28,7 +36,12 @@ const Modals = ({ flight, search, selected, title, index, custom }) => {
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Plane selected={selected} index={index} handleClose={handleClose} />
+          <Plane
+            selected={selected}
+            index={index}
+            handleClose={handleClose}
+            seatTaken={seatTaken}
+          />
         </Modal.Body>
       </Modal>
     </>

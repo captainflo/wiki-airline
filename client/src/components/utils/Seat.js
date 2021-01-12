@@ -1,6 +1,14 @@
 import Modals from './Modals';
 
-const Seat = ({ title, flight, search, index, place, changeSeat }) => {
+const Seat = ({
+  title,
+  flight,
+  search,
+  index,
+  place,
+  changeSeat,
+  seatTaken,
+}) => {
   return (
     <div>
       <img
@@ -16,6 +24,7 @@ const Seat = ({ title, flight, search, index, place, changeSeat }) => {
         selected={changeSeat}
         index={index}
         custom={'custom'}
+        seatTaken={seatTaken}
       />
     </div>
   );

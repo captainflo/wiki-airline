@@ -48,6 +48,11 @@
   cursor: pointer;
 }
 
+.seat-taken {
+  background: #0078d2 !important;
+  border-radius: 8px;
+}
+
 @media only screen and (min-width: 824px) {
   .seat-plane {
   }

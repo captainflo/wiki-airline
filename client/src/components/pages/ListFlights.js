@@ -109,9 +109,11 @@ const ListFlights = (props) => {
   };
 
   const changeSeat = (i, value) => {
-    let seatCopy = [...seat];
-    seatCopy[i] = value;
-    setSeat(seatCopy);
+    if (value) {
+      let seatCopy = [...seat];
+      seatCopy[i] = value;
+      setSeat(seatCopy);
+    }
   };
 
   const changeSeatReturn = (i, value) => {

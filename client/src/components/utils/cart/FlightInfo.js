@@ -6,7 +6,6 @@ import Seat from '../Seat';
 const FlightInfo = ({ flight, search, seat, addSeat, changeSeat }) => {
   const total = search.persons * flight.price;
   const displaySeat = seat.map((place, i) => {
-    console.log(seat);
     return (
       <Seat
         key={i}
@@ -16,6 +15,7 @@ const FlightInfo = ({ flight, search, seat, addSeat, changeSeat }) => {
         search={search}
         changeSeat={changeSeat}
         index={i}
+        seatTaken={seat}
       />
     );
   });
@@ -45,6 +45,7 @@ const FlightInfo = ({ flight, search, seat, addSeat, changeSeat }) => {
           search={search}
           selected={addSeat}
           custom={'select-seat'}
+          seatTaken={seat}
         />
       ) : (
         ''
