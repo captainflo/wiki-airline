@@ -1,6 +1,6 @@
 # wiki-airline
 
-The concept of this project was to create a travel agency where you can select a list of flight (dummy data). you can order your flight and receive by email your bording pass.
+The concept of this project was to create a travel website. Users can search for upcoming flights, select from a list of flights (dummy data), order, and receive bording pass via email.
 
 **Preview**
 
