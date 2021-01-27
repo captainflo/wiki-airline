@@ -2,7 +2,7 @@ import moment from 'moment';
 
 const validate = (values) => {
   const errors = {};
-  let timeNow = moment().format('YYYY-DD-MM');
+  let timeNow = moment.utc().format('MM-DD-YYYY');
   if (!values.from) {
     errors.from = 'Required';
   }
@@ -13,17 +13,17 @@ const validate = (values) => {
 
   if (!values.depart) {
     errors.depart = 'Required';
-  } else if (moment.utc(values.depart).format('YYYY-DD-MM') < timeNow) {
+  } else if (moment.utc(values.depart).format('MM-DD-YYYY') < timeNow) {
     errors.depart = 'must be equal or higher than today';
   }
 
   if (!values.returnDate) {
     errors.returnDate = 'Required';
-  } else if (moment.utc(values.returnDate).format('YYYY-DD-MM') < timeNow) {
+  } else if (moment.utc(values.returnDate).format('MM-DD-YYYY') < timeNow) {
     errors.returnDate = 'must be equal or higher than today';
   } else if (
-    moment.utc(values.returnDate).format('YYYY-DD-MM') <
-    moment.utc(values.depart).format('YYYY-DD-MM')
+    moment.utc(values.returnDate).format('MM-DD-YYYY') <
+    moment.utc(values.depart).format('MM-DD-YYYY')
   ) {
     errors.returnDate = 'must be higher than depart';
   }
