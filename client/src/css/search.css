@@ -26,6 +26,11 @@
   margin-top: 24px;
 }
 
+.info-demo {
+  color: #fff;
+  text-align: center;
+}
+
 @media only screen and (min-width: 1024px) {
   .search h1 {
     font-size: 40px;
