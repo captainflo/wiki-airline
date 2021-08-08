@@ -9,9 +9,8 @@ const Trending = () => {
     },
     {
       title:
-        'https://cdn.pixabay.com/photo/2017/03/27/13/33/atoll-2178747_1280.jpg',
-      text:
-        'White sand beaches, dozens of trails and outdoor dining await in sunny Florida',
+        'https://cdn.pixabay.com/photo/2016/03/24/17/44/palm-trees-1277243_1280.jpg',
+      text: 'White sand beaches, dozens of trails and outdoor dining await in sunny Florida',
     },
     {
       title:
@@ -21,8 +20,7 @@ const Trending = () => {
     {
       title:
         'https://cdn.pixabay.com/photo/2016/11/10/11/08/san-francisco-1814030_1280.jpg',
-      text:
-        'Around the margins the words, "Seal of the City and County of San Francisco."',
+      text: 'Around the margins the words, "Seal of the City and County of San Francisco."',
     },
   ];
 

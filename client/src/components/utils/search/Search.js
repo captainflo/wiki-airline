@@ -43,7 +43,7 @@ const Search = (props) => {
     <div className="search">
       <h1 className="display-4">Book your flight</h1>
       <p className="info-demo">
-        Full experience select the date March 18 depart and March 19 return
+        Full experience select the date August 18 depart and August 19 return
         (Miami to las Vegas)
       </p>
       <div className="road-type">
