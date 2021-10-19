@@ -34,6 +34,7 @@ const Trending = () => {
       </div>
     );
   });
+
   return (
     <div className="container">
       <h2 className="my-4 ">Trending now</h2>

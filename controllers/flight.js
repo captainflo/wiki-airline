@@ -53,39 +53,3 @@ exports.getListFlights = async function (req, res, next) {
 
   res.status(201).send(flights);
 };
-
-// // Fetch Ticket
-// exports.fetchTicket = async function (req, res, next) {
-//   const ticket = await Ticket.findById(req.params.id);
-//   if (!ticket) {
-//     res.send({ error: 'nothing found' });
-//   }
-//   if (!ticket) {
-//     res.send('No ticket found...');
-//   }
-//   res.send(ticket);
-// };
-
-// // Update Ticket
-// exports.updateTicket = async function (req, res, next) {
-//   const ticket = await Ticket.findById(req.params.id);
-//   if (!ticket) {
-//     res.send({ error: 'nothing found' });
-//   }
-
-//   ticket.set(req.body);
-
-//   await ticket.save();
-//   res.status(200).send(ticket);
-// };
-
-// // Delete Ticket
-// exports.deleteTicket = function (req, res, next) {
-//   Ticket.findByIdAndRemove(req.params.id)
-//     .then(function (user) {
-//       res.json(user);
-//     })
-//     .catch(function (err) {
-//       res.json(err);
-//     });
-// };
